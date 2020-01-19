@@ -5,4 +5,6 @@ package io.terrible.task.processor.services;
 public interface WorkerService {
 
   boolean createThumbnail(String video);
+
+  boolean scanDirectory(String directory);
 }

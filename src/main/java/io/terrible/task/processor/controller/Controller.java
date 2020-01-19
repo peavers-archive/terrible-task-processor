@@ -26,4 +26,14 @@ public class Controller {
         ? ResponseEntity.accepted().body("Message sent")
         : ResponseEntity.badRequest().body("Message failed");
   }
+
+  @GetMapping("/directories")
+  public ResponseEntity<String> directories(@RequestParam final String directories) {
+
+    final boolean messageSent = workerService.scanDirectory(directories);
+
+    return messageSent
+        ? ResponseEntity.accepted().body("Message sent")
+        : ResponseEntity.badRequest().body("Message failed");
+  }
 }

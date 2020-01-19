@@ -1,15 +1,14 @@
 /* Licensed under Apache-2.0 */
 package io.terrible.task.processor.services;
 
+import java.util.ArrayList;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.task.launcher.TaskLaunchRequest;
 import org.springframework.messaging.support.GenericMessage;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /** @author Chris Turner (chris@forloop.space) */
 @Slf4j

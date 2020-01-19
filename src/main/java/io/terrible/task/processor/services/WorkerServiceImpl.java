@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.task.launcher.TaskLaunchRequest;
 import org.springframework.messaging.support.GenericMessage;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 /** @author Chris Turner (chris@forloop.space) */
 @Slf4j
@@ -21,10 +22,11 @@ public class WorkerServiceImpl implements WorkerService {
   public boolean createThumbnail(final String video) {
     final String url = "maven://io.terrible:io.terrible.thumbnail.creator:0.0.1-SNAPSHOT";
 
-    final List<String> commandArgsList = new ArrayList<>();
-    commandArgsList.add("--video " + video);
+    final List<String> input = new ArrayList<>();
+    input.add("--video");
+    input.add(StringUtils.trimWhitespace(video));
 
-    final TaskLaunchRequest request = new TaskLaunchRequest(url, commandArgsList, null, null, null);
+    final TaskLaunchRequest request = new TaskLaunchRequest(url, input, null, null, null);
 
     return messageService.send(new GenericMessage<>(request));
   }

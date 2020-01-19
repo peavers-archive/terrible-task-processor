@@ -1,1 +1,13 @@
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          task: DEBUG
 
+spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: terrible-task-launcher

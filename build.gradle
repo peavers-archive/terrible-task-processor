@@ -5,8 +5,8 @@ plugins {
     id 'java'
 }
 
-group = 'io.terrible.template'
-archivesBaseName = 'terrible-template'
+group = 'io.terrible.task.processor'
+archivesBaseName = 'terrible-task-processor'
 sourceCompatibility = '11'
 
 repositories {
@@ -34,12 +34,17 @@ ext {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    implementation 'org.springframework.cloud:spring-cloud-starter-task'
+    implementation 'org.springframework.cloud:spring-cloud-starter-stream-rabbit'
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'

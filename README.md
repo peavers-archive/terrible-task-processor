@@ -1,3 +1,4 @@
-# Terrible Template
+# Terrible Task Processor
 
-Just a repository template setup with the bits I like.
+Handles the coordination of what task to start. Sending a request to the controller will trigger an event to Rabbit for
+that task to be created. 

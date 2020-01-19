@@ -2,11 +2,12 @@ plugins {
     id 'org.springframework.boot' version '2.2.3.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'com.diffplug.gradle.spotless' version '3.27.1'
+    id 'maven-publish'
     id 'java'
 }
 
-group = 'io.terrible.task.processor'
-archivesBaseName = 'terrible-task-processor'
+group = 'io.terrible'
+version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
@@ -73,3 +74,21 @@ spotless {
 }
 
 build.dependsOn spotlessJavaApply
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
+
+task installGitHook(type: Copy) {
+    from new File(rootProject.rootDir, 'pre-commit')
+    into { new File(rootProject.rootDir, '.git/hooks') }
+    fileMode 0777
+}
+tasks.getByPath(':build').dependsOn installGitHook

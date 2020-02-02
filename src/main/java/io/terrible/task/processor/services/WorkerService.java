@@ -4,7 +4,7 @@ package io.terrible.task.processor.services;
 /** @author Chris Turner (chris@forloop.space) */
 public interface WorkerService {
 
-  boolean createThumbnail(String video);
+  boolean createThumbnail(String path);
 
-  boolean scanDirectory(String directory);
+  boolean scanDirectory(String path);
 }

@@ -28,9 +28,9 @@ public class Controller {
   }
 
   @GetMapping("/directories")
-  public ResponseEntity<String> directories(@RequestParam final String directories) {
+  public ResponseEntity<String> directories(@RequestParam final String path) {
 
-    final boolean messageSent = workerService.scanDirectory(directories);
+    final boolean messageSent = workerService.scanDirectory(path);
 
     return messageSent
         ? ResponseEntity.accepted().body("Message sent")

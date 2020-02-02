@@ -19,12 +19,12 @@ public class WorkerServiceImpl implements WorkerService {
   private final MessageService messageService;
 
   @Override
-  public boolean createThumbnail(final String video) {
+  public boolean createThumbnail(final String path) {
     final String url = "maven://io.terrible:terrible-thumbnail-creator:0.0.1-SNAPSHOT";
 
     final List<String> input = new ArrayList<>();
     input.add("--video");
-    input.add(StringUtils.trimWhitespace(video));
+    input.add(StringUtils.trimWhitespace(path));
 
     final TaskLaunchRequest request = new TaskLaunchRequest(url, input, null, null, null);
 
@@ -32,12 +32,12 @@ public class WorkerServiceImpl implements WorkerService {
   }
 
   @Override
-  public boolean scanDirectory(final String directory) {
+  public boolean scanDirectory(final String path) {
     final String url = "maven://io.terrible:terrible-directory-scanner:0.0.1-SNAPSHOT";
 
     final List<String> input = new ArrayList<>();
     input.add("--directory");
-    input.add(StringUtils.trimWhitespace(directory));
+    input.add(StringUtils.trimWhitespace(path));
 
     final TaskLaunchRequest request = new TaskLaunchRequest(url, input, null, null, null);
 

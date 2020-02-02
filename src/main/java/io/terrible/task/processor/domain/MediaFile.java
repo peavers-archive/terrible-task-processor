@@ -1,6 +1,7 @@
 /* Licensed under Apache-2.0 */
 package io.terrible.task.processor.domain;
 
+import java.time.Instant;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,8 +10,6 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.Version;
-
-import java.time.Instant;
 
 /** @author Chris Turner (chris@forloop.space) */
 @Data

@@ -1,11 +1,6 @@
-logging:
-  level:
-    org:
-      springframework:
-        cloud:
-          task: DEBUG
-
 spring:
+  application:
+    name: terrible-task-processor
   cloud:
     stream:
       bindings:
@@ -14,3 +9,13 @@ spring:
           group: terrible-directory-scanner
         output:
           destination: terrible-task-launcher
+
+server:
+  port: 0
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          task: DEBUG

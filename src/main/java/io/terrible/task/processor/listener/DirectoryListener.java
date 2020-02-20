@@ -1,35 +1,34 @@
 /* Licensed under Apache-2.0 */
 package io.terrible.task.processor.listener;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.terrible.task.processor.domain.MediaFile;
-import io.terrible.task.processor.services.WorkerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @Slf4j
 @RequiredArgsConstructor
 @EnableBinding(MessageBinding.class)
 public class DirectoryListener {
 
-  private final WorkerService workerService;
-
   private final ObjectMapper objectMapper = new ObjectMapper();
 
+  // TODO Eureka is coming...
+  private final WebClient webClient = WebClient.create("http://localhost:8081");
+
   @StreamListener(target = MessageBinding.DIRECTORY_CHANNEL)
-  public void processHelloChannelGreeting(String message) {
-    log.info("received {}", message);
+  public void processDirectoryMessage(final String message) {
 
     try {
-      MediaFile mediaFile = objectMapper.readValue(message, MediaFile.class);
+      final MediaFile mediaFile = objectMapper.readValue(message, MediaFile.class);
 
-      workerService.createThumbnail(mediaFile.getAbsolutePath());
+      webClient.post().uri("/media-files").bodyValue(mediaFile).exchange().subscribe();
 
-    } catch (JsonProcessingException e) {
-      e.printStackTrace();
+    } catch (final Exception e) {
+      log.info("Unable save media file {}", e.getMessage());
     }
   }
 }

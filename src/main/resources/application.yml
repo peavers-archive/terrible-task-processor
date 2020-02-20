@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: terrible-task-processor
@@ -9,13 +12,3 @@ spring:
           group: terrible-directory-scanner
         output:
           destination: terrible-task-launcher
-
-server:
-  port: 0
-
-logging:
-  level:
-    org:
-      springframework:
-        cloud:
-          task: DEBUG

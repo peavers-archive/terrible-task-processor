@@ -1,21 +1,19 @@
 /* Licensed under Apache-2.0 */
 package io.terrible.task.processor.domain;
 
-import java.time.Instant;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.annotation.Version;
 
 /** @author Chris Turner (chris@forloop.space) */
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MediaFile {
 
   @Id private String id;
@@ -23,10 +21,4 @@ public class MediaFile {
   private String absolutePath;
 
   private String mimeType;
-
-  @Version private Long version;
-
-  @CreatedDate private Instant created;
-
-  @LastModifiedDate private Instant lastModified;
 }

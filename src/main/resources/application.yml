@@ -7,6 +7,9 @@ spring:
   cloud:
     stream:
       bindings:
+        thumbnailChannel:
+          destination: terrible-thumbnail-scanner
+          group: terrible-thumbnail-scanner
         directoryChannel:
           destination: terrible-directory-scanner
           group: terrible-directory-scanner

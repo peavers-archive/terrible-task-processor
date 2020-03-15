@@ -16,7 +16,7 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 @EnableBinding(MessageBinding.class)
-public class DirectoryListener {
+public class TaskResultListener {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 

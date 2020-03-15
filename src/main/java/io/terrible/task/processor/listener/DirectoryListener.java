@@ -51,8 +51,6 @@ public class DirectoryListener {
 
             webClient.post().uri("/media-files").bodyValue(mediaFile).exchange().subscribe();
 
-            workerService.createThumbnail(mediaFile.getAbsolutePath());
-
         } catch (final Exception e) {
             log.info("Unable save media file {}", e.getMessage());
         }

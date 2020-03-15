@@ -4,6 +4,7 @@ package io.terrible.task.processor.controller;
 import io.terrible.task.processor.services.WorkerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ import reactor.core.publisher.Mono;
  * @author Chris Turner (chris@forloop.space)
  */
 @Slf4j
+@CrossOrigin
 @RestController
 @RequiredArgsConstructor
 public class TaskController {

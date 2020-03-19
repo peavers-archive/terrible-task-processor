@@ -14,7 +14,7 @@ import org.springframework.data.annotation.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MediaFile {
+public class DirectoryScanResult {
 
   @Id private String id;
 

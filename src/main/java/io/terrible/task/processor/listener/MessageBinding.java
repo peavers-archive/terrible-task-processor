@@ -6,13 +6,13 @@ import org.springframework.messaging.SubscribableChannel;
 
 public interface MessageBinding {
 
-    String DIRECTORY_CHANNEL = "directoryChannel";
+  String DIRECTORY_CHANNEL = "directoryChannel";
 
-    String THUMBNAIL_CHANNEL = "thumbnailChannel";
+  String THUMBNAIL_CHANNEL = "thumbnailChannel";
 
-    @Input(DIRECTORY_CHANNEL)
-    SubscribableChannel directoryChannel();
+  @Input(DIRECTORY_CHANNEL)
+  SubscribableChannel directoryChannel();
 
-    @Input(THUMBNAIL_CHANNEL)
-    SubscribableChannel thumbnailChannel();
+  @Input(THUMBNAIL_CHANNEL)
+  SubscribableChannel thumbnailChannel();
 }

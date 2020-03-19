@@ -20,6 +20,7 @@ public class MessageServiceImpl implements MessageService {
 
   @Override
   public boolean send(final GenericMessage<TaskLaunchRequest> message) {
+
     return this.source.output().send(message);
   }
 }

@@ -8,8 +8,8 @@ spring:
     stream:
       bindings:
         thumbnailChannel:
-          destination: terrible-thumbnail-scanner
-          group: terrible-thumbnail-scanner
+          destination: terrible-thumbnail-creator
+          group: terrible-thumbnail-creator
         directoryChannel:
           destination: terrible-directory-scanner
           group: terrible-directory-scanner

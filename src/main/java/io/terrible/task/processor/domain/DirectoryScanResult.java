@@ -18,7 +18,17 @@ public class DirectoryScanResult {
 
   @Id private String id;
 
+  private String name;
+
   private String absolutePath;
 
   private String mimeType;
+
+  private long size;
+
+  private long lastAccessTime;
+
+  private long lastModifiedTime;
+
+  private long importedTime;
 }

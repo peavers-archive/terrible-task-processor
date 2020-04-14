@@ -6,7 +6,7 @@ import lombok.*;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
-/** @author Chris Turner (chris@forloop.space) */
+
 @Data
 @Builder
 @AllArgsConstructor

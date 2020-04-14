@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
-/** @author Chris Turner (chris@forloop.space) */
+
 @Data
 @Builder
 @AllArgsConstructor

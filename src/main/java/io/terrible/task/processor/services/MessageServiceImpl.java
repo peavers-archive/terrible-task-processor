@@ -9,7 +9,7 @@ import org.springframework.cloud.task.launcher.TaskLaunchRequest;
 import org.springframework.messaging.support.GenericMessage;
 import org.springframework.stereotype.Service;
 
-/** @author Chris Turner (chris@forloop.space) */
+
 @Slf4j
 @Service
 @RequiredArgsConstructor

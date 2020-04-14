@@ -10,7 +10,7 @@ import org.springframework.messaging.support.GenericMessage;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-/** @author Chris Turner (chris@forloop.space) */
+
 @Slf4j
 @Service
 @RequiredArgsConstructor

@@ -39,6 +39,8 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-task'
     implementation 'org.springframework.cloud:spring-cloud-starter-stream-rabbit'
 
+    implementation 'commons-io:commons-io:2.6'
+
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
     compileOnly 'org.projectlombok:lombok'

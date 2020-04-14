@@ -3,13 +3,15 @@
 package io.terrible.task.processor.listener;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.terrible.task.processor.domain.DirectoryScanResult;
+import io.terrible.task.processor.converters.MediaFileConverter;
 import io.terrible.task.processor.domain.ThumbnailCreateResult;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.web.reactive.function.client.WebClient;
+
+import java.io.File;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -37,10 +39,10 @@ public class TaskResultListener {
     public void processDirectoryMessage(final String message) {
 
         try {
-            final DirectoryScanResult result = objectMapper.readValue(message, DirectoryScanResult.class);
+            final File result = objectMapper.readValue(message, File.class);
 
-            if (!result.getAbsolutePath().contains("sample")) {
-                webClient.post().uri("/media-files").bodyValue(result).exchange().subscribe();
+            if (!result.getAbsolutePath().contains("sample")) { // Ignore sample files
+                webClient.post().uri("/media-files").bodyValue(MediaFileConverter.convert(result)).exchange().subscribe();
             }
 
         } catch (final Exception e) {

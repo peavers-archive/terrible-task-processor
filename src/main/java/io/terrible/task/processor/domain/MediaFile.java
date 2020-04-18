@@ -8,9 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.ArrayList;
 
 @Data
@@ -38,7 +36,5 @@ public class MediaFile {
     private LocalDateTime lastAccessTime;
 
     private LocalDateTime lastModifiedTime;
-
-    private final LocalDateTime importedTime = LocalDateTime.ofInstant(Instant.now(), ZoneId.systemDefault());
 
 }

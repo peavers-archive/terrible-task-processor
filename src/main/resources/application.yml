@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8083
 
 spring:
   application:
@@ -13,5 +13,23 @@ spring:
         directoryChannel:
           destination: terrible-directory-scanner
           group: terrible-directory-scanner
+        apiChannel:
+          destination: terrible-api-service
+          group: terrible-api-service
         output:
           destination: terrible-task-launcher
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  endpoint:
+    prometheus:
+      enabled: true
+    metrics:
+      enabled: true

@@ -1,11 +1,9 @@
+/* Licensed under Apache-2.0 */
 package io.terrible.task.processor.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.*;
-
-import java.nio.file.Path;
 import java.util.ArrayList;
-
+import lombok.*;
 
 @Data
 @Builder

@@ -2,12 +2,13 @@
 package io.terrible.task.processor.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 @Data
 @Builder
@@ -21,6 +22,8 @@ public class MediaFile {
   private String name;
 
   private String path;
+
+  private String thumbnailPath;
 
   private String extension;
 

@@ -18,13 +18,14 @@ public class ThumbnailResultListener {
 
   private final ObjectMapper objectMapper;
 
-  @SendTo(MessageBinding.API_CHANNEL)
+  @SendTo(MessageBinding.API_CHANNEL_THUMBNAIL)
   @StreamListener(target = MessageBinding.THUMBNAIL_CHANNEL)
   public GenericMessage<ThumbnailCreateResult> processThumbnailMessage(final String message) {
 
     try {
-      final ThumbnailCreateResult thumbnailCreateResult =
-          objectMapper.readValue(message, ThumbnailCreateResult.class);
+      final ThumbnailCreateResult thumbnailCreateResult = objectMapper.readValue(message, ThumbnailCreateResult.class);
+
+      log.info("Created {}", thumbnailCreateResult);
 
       return new GenericMessage<>(thumbnailCreateResult);
 

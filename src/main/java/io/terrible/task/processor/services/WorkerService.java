@@ -3,7 +3,7 @@ package io.terrible.task.processor.services;
 
 public interface WorkerService {
 
-  boolean createThumbnail(String path);
+  boolean createThumbnail(String path, String output);
 
   boolean scanDirectory(String path);
 }

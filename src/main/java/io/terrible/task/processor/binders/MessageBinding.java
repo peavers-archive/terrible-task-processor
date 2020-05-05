@@ -10,6 +10,8 @@ public interface MessageBinding {
 
   String API_CHANNEL = "apiChannel";
 
+  String API_CHANNEL_THUMBNAIL = "apiChannelThumbnail";
+
   String DIRECTORY_CHANNEL = "directoryChannel";
 
   String THUMBNAIL_CHANNEL = "thumbnailChannel";
@@ -18,6 +20,9 @@ public interface MessageBinding {
 
   @Output(API_CHANNEL)
   MessageChannel apiOutput();
+
+  @Output(API_CHANNEL_THUMBNAIL)
+  MessageChannel apiOutputThumbnail();
 
   @Output(LAUNCHER_CHANNEL)
   MessageChannel launcherOutput();

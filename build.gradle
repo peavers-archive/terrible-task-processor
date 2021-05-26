@@ -44,7 +44,7 @@ dependencies {
     implementation 'io.micrometer:micrometer-core'
     implementation 'io.micrometer:micrometer-registry-prometheus'
 
-    implementation 'commons-io:commons-io:2.8.0'
+    implementation 'commons-io:commons-io:2.9.0'
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
